@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.io.Console;
 
 public class Main {
 
@@ -35,11 +36,14 @@ public class Main {
     // ============================
     public static int verifierCode(String[][] users, Scanner sc) {
 
+        Console con = System.console();
         int tentative = 0;
-
+        String code, numCompte;
         while (tentative < 3) {
-            System.out.print("Code secret (4 chiffres) : ");
-            String code = sc.next();
+            System.out.println("Entrer le numero de compte : ");
+            numCompte = sc.next();
+            char [] readCodes = con.readPassword("Code secret (4 chiffres) : ");
+            code = new String(readCodes);
 
             // Vérification format
             if (!code.matches("\\d{4}")) {
@@ -48,15 +52,15 @@ public class Main {
             }
 
             for (int i = 0; i < users.length; i++) {
-                if (code.equals(users[i][2])) {
+                if (code.equals(users[i][2]) && numCompte.equals(users[i][4])) {
                     System.out.println("Bienvenue " +
                             users[i][0].charAt(0) + "." + users[i][1]);
-                    return i;
+                    return 0;       
                 }
             }
 
             tentative++;
-            System.out.println("Code incorrect (" + (3 - tentative) + " tentatives restantes)");
+            System.out.println("Numero de compte ou Code incorrect (" + (3 - tentative) + " tentatives restantes)");
         }
 
         return -1;
