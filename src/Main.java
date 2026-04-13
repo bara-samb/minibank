@@ -82,25 +82,26 @@ public class Main {
             System.out.println("3: Transfert");
             System.out.println("4: Quitter");
 
-            int choix = sc.nextInt();
+            String choix = sc.next();
 
             switch (choix) {
-                case 1:
+                case "1":
                     // On passe le numéro de compte
                     consulterSolde(users, users[index][4]);
                     break;
 
-                case 2:
+                case "2":
                     effectuerRetrait(users, index, sc);
                     break;
 
-                case 3:
+                case "3":
                     effectuerTransfert(users, index, sc);
                     break;
 
-                case 4:
+                case "4":
                     continuer = false;
                     break;
+                default: System.out.println("mauvais choix");
             }
         }
     }
