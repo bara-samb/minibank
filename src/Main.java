@@ -47,7 +47,8 @@ public class Main {
 
             // Vérification format
             if (!code.matches("\\d{4}")) {
-                System.out.println("Code invalide (4 chiffres uniquement)");
+                tentative++;
+                System.out.println("Code invalide (4 chiffres uniquement) "+ (3 - tentative) + " tentatives restantes.");
                 continue;
             }
 
