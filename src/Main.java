@@ -135,9 +135,27 @@ public class Main {
     public static void effectuerRetrait(String[][] users, int index, Scanner sc) {
 
         double solde = Double.parseDouble(users[index][3]);
+        double montant;
+        while (true) {
+            System.out.print("Entrez le montant : ");
+            String saisie = sc.next();
 
-        System.out.print("Montant retrait : ");
-        double montant = sc.nextDouble();
+            try {
+                // On tente la conversion
+                montant = Double.parseDouble(saisie);
+
+                // Optionnel : vérifier que le montant n'est pas négatif
+                if (montant > 0) {
+                    break; // Saisie correcte et positive, on sort de la boucle !
+                } else {
+                    System.out.println("Erreur : Le montant doit être supérieur à 0.");
+                }
+
+            } catch (NumberFormatException e) {
+                // Si l'utilisateur a tapé des lettres ou des symboles invalides
+                System.out.println("Saisie invalide ! Veuillez entrer un nombre (ex: 1500).");
+            }
+        }
 
         if (montant <= solde) {
             solde -= montant;
