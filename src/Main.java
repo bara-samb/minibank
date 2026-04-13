@@ -56,7 +56,7 @@ public class Main {
                 if (code.equals(users[i][2]) && numCompte.equals(users[i][4])) {
                     System.out.println("Bienvenue " +
                             users[i][0].charAt(0) + "." + users[i][1]);
-                    return 0;       
+                    return i;
                 }
             }
 
