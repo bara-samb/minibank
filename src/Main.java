@@ -81,6 +81,7 @@ public class Main {
             System.out.println("2: Retrait");
             System.out.println("3: Transfert");
             System.out.println("4: Quitter");
+            System.out.print("Votre choix : ");
 
             String choix = sc.next();
 
