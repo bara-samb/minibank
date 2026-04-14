@@ -219,9 +219,10 @@ public class Main {
         }
         double frais = montant * 0.01;
         double total = montant + frais;
+        //System.out.println("vous allez trensferer un montant de :" + montant + "avec un frais de 1%");
 
         if (total > solde) {
-            System.out.println("Solde insuffisant (montant + frais)");
+            System.out.println("Solde insuffisant ");
             return;
         }
 
